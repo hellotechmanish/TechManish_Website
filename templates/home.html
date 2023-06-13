@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=>, initial-scale=1.0">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+    {% load static %}
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+
+            margin: 0%;
+            padding: 0%;
+            font-family: Arial;
+
+            /* overflow: scroll; */
+            /* min-width: 300px;
+            min-height: 600px; */
+        }
+
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.836);
+            padding: 5px;
+            position: fixed;
+            box-shadow: 1px 1px transparent;
+            top: 0;
+            width: 100%;
+        }
+
+        .navbar .logo {
+
+            padding: 25px 15px;
+            width: 170px;
+            height: 10px;
+            float: left;
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: rgb(195, 203, 224);
+
+        }
+
+        .logo:hover {
+            color: rgb(61, 229, 235);
+            transform: scale(1.10);
+            transition: .3s;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .navbar .navlink {
+            display: flex;
+            text-decoration: none;
+        }
+
+        .navbar a {
+            color: #fff;
+            padding: 12px 30px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+
+        }
+
+        .navbar a:hover {
+            background: rgba(134, 129, 129, 0.6);
+            border-radius: 6px;
+            transition: .1s;
+        }
+
+        section {
+            height: 100vh;
+            background: url("{% static 'noen.jpg' %}");
+            /* background: url(noen.jpg); */
+            background-size: cover;
+            margin-top: -100px;
+        }
+
+        .checkbtn {
+            font-size: 30px;
+            color: #fff;
+            float: right;
+            line-height: 80px;
+            margin-right: 40px;
+            cursor: pointer;
+            display: none;
+        }
+
+        #check {
+            display: none;
+        }
+
+
+        .note {
+            background-color: rgb(128, 56, 196);
+            color: #fff;
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            height: 175px;
+            font-size: larger;
+            font-family: 'Brush Script MT', cursive;
+            z-index: 1;
+
+            /* 
+            padding: 5px;
+            margin: 5px;
+            border-radius: 5px; */
+        }
+
+
+
+
+        @media (max-width:800px) {
+            label.logo {
+                font-size: 30px;
+                padding-left: 50px;
+
+            }
+        }
+
+        /* extra */
+
+
+        :root {
+            --background-dark: #2d3548;
+            --text-light: rgba(255, 255, 255, 0.6);
+            --text-lighter: rgba(255, 255, 255, 0.9);
+            --spacing-s: 8px;
+            --spacing-m: 16px;
+            --spacing-l: 24px;
+            --spacing-xl: 32px;
+            --spacing-xxl: 64px;
+            --width-container: 1200px;
+        }
+
+
+
+        .hero-section {
+            align-items: flex-start;
+            background-image: linear-gradient(15deg, #0f4667 0%, #2a6973 150%);
+            display: flex;
+            min-height: 100%;
+            justify-content: center;
+            padding: var(--spacing-xxl) var(--spacing-l);
+            height: 400px;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            grid-column-gap: var(--spacing-l);
+            grid-row-gap: var(--spacing-l);
+            max-width: var(--width-container);
+            width: 100%;
+
+        }
+
+        @media(min-width: 540px) {
+            .card-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero-section {
+                height: 1200px;
+            }
+
+        }
+
+        @media(min-width: 960px) {
+            .card-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .hero-section {
+                height: 400px;
+            }
+
+        }
+
+        .card {
+            list-style: none;
+            position: relative;
+        }
+
+        .card:before {
+            content: '';
+            display: block;
+            padding-bottom: 150%;
+            width: 100%;
+        }
+
+        .card__background {
+            background-size: cover;
+            background-position: center;
+            border-radius: var(--spacing-l);
+            bottom: 0;
+            filter: brightness(0.75) saturate(1.2) contrast(0.85);
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            transform-origin: center;
+            trsnsform: scale(1) translateZ(0);
+            transition:
+                filter 200ms linear,
+                transform 200ms linear;
+        }
+
+        .card:hover .card__background {
+            transform: scale(1.05) translateZ(0);
+        }
+
+        .card-grid:hover>.card:not(:hover) .card__background {
+            filter: brightness(0.5) saturate(0) contrast(1.2) blur(20px);
+        }
+
+        .card__content {
+            left: 0;
+            padding: var(--spacing-l);
+            position: absolute;
+            top: 0;
+        }
+
+        .card__category {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: var(--spacing-s);
+            text-transform: uppercase;
+        }
+
+        .card__heading {
+            color: var(--text-lighter);
+            font-size: 1.9rem;
+            text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
+            line-height: 1.4;
+            word-spacing: 100vw;
+
+
+        }
+
+        /* extra */
+       .game{
+        border: 1px solid black;
+        height: 450px;;
+       }
+
+        /* footer */
+
+
+
+        /* footer */
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="logo"> TECH MANISH </div>
+        <div class="navlink">
+            <a class="active" href=" ">HOME</a>
+            <a href="profile">PROFILE</a>
+            <a href="login">LOGIN</a>
+            <a href="help">HELP</a>
+        </div>
+    </div>
+    <!-- card -->
+    <section></section>
+    <div class="note">
+        <h3>This My Potfolio</h3>
+    </div>
+
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+
+    <section class="hero-section">
+        <div class="card-grid">
+            <a class="card" href="#">
+                <div class="card__background"
+                    style="background-image: url(https://lh3.googleusercontent.com/_sH-ozl1gTIcBTt4EuTzUyZWiX43FuIMMRnK5aQSl2ghec2KnI5SpajeHK6mGmdU2aUkVAuokJxO-I0VtH4ZzYh8uQVCwFRTsEDGVaG65HZh6n2W5tsS3RIMECWuS3UhUiOaD3vH-Fdlu3FWrdBmJSKFgzLRb8nBdjwNldl0ArP5HUDkbEdU2FRRB5bR3XYZGkHnZMafIajQNAZTR8ivvBv_sBvusO2MIkRr-rHFAAAz-5lUd-dNKLog5pUGx6glkDIBqpr-v6dr_1UL9iReW-VNQS3bZ9UpKKWh_D5S37Y7eBvu6wmF5LtkiomO4nPchEDONiBNVEQQafgLxZU2Ucrj4KAf6-Lb2RwYeysExvByt3V2np_NuGtvB5s5dVhgm2HZB6valOUEOw0icKFuyBf4P56OKtcGCm31OugAu_ZgZunbl8qdURf0kxQNvX0Yu2gf6D6ro_kgOUMXK6PlYz0wREmragwH3y3o_1efGlRCEuxTgQcPbEwsXtTGEvSMvTE4lmnk_sNakuUpOTFqrfLZzDODNLHVU2JeT97OT6rVNuqlDgc2PBY-oTbXX5sCe-vVX72W-es6omfFAaZ-I7dl4nV4_c7LUlh9u0SQZrIdInNgfZhjEnUzB3yuMC3bU6ROXRhAiEGPjTJZ3GTuMZMn1KEeXjt9WCWikYgN_4rNp1QuINokk6Wap04xx5QTC1NaFw3cWgLTI3dYJeXKdd2TScIVr1AzCLHvleaB0EYF9TwcphrNoXkh9jZbUjAuJNsDgWP5dehySOrpsYRmPhaVLk-H9uptETwMJVq4WPBIMZtiCjFl5Ktz2WwHcY2LnRaLxmfxkNDxsGtZVtWB7htUzHh1kLsAeNuWdVACuOi1jD-jGSwPWz9WyA_mTWY-y6XDKnM2lHnEOPp8KFS6mJzMmTiXZNBkdyr-jSH2fVPzoA=w590-h617-s-no?authuser=0)">
+                </div>
+                <div class="card__content">
+                    <p class="card__category">Introduction</p>
+                    <h3 class="card__heading"><br> <span style="color: rgb(226, 149, 149);">MANISH</span> KUMAR</h3>
+                </div>
+            </a>
+            <a class="card" href="#">
+                <div class="card__background"
+                    style="background-image: url(https://lh3.googleusercontent.com/fONFLNCssR_9mrq2fXecqe7yzAWPjGuug8leJ3rTAXsEWHlhrvNjj3oq5_ws1ABgJidMxNV9r-N8irFGYK-ENpUwRdCsaXwAbUjbHX-R4pR68P4KvYk1r9ijS3CtFWKFk3iLKhrNCA-t1BPeZCO1xpWBsPUkW9oSyMVGQvBC8bZvd5SJ0aTiSOusVOefGVIc3pCEGmwdn8BcBQ7S0mr1sxKlxf34P9F9HfRzOOgpvju6VmbOVVVcIQDORGjwUbQMFTUoiyOPEPS3I5SthdnjD_6PKKFjC_17z-gqT2wlZqlwmyX3Vl3B84AK4w9HO2iFGN-ROBx3EXFP22_GkQx940ktzSdwTJJjK67kdAyBuxVPzq8N4ha4yIZNwWJID--xmoyGwU3tPPqaPYrSMHkENwWkURWSFccvqAv4AFYtYkIyrbFbuHrpr5H6_EChKQAbu1_cFvnnWbDZckP9QRdx8AQA8g7wDYU06Y6lUYtzfNYkS7-BSAi5h_N6iNFZymexM5zNC4Oq5CnJd7cvR-MDt3tzOsv2c_CEh6NTL6KLVvLQF7XUzCBvTkmf8sYwZS3p40XIg9yE6uo3KY2F0Zaud0OYxFQL2zmSAPp5Ap-eZS8CRBRZ-nhc_giDpzF5WiXg96gmvD7Gcq1kNVH04ROLv3l-k-AacUoEjUysSjGN438IGPkyaWHrCPQBfDuHwR4WefGKe4Ayk5kX1ocRGPxsAXBbT1BhyoNM78gPuyYwkvbCD-m-pxOz-xlx6bCtCdo7IvpkfbKsvhC2t3knVJ_7iv_DhgXRtGgmP1Pz7PXzXQNapzr3GHlfIAi9Io6iN2VnThZchPj6WpaDbpgKixYlTExvP53BE-qd5H69K0lwRVPCCeY6_7UHRLyElh088sO_8nW3AqCkt1PNjMO9nRUuVezmTRw7nflHW1uJjE7T4lO3Ww=w135-h240-no?authuser=0)">
+                </div>
+                <div class="card__content">
+                    <p class="card__category">Profectional</p>
+                    <h3 class="card__heading"><br><br> All About Profectional</h3>
+                </div>
+
+                <a class="card" href="#">
+                    <div class="card__background"
+                        style="background-image: url(https://lh3.googleusercontent.com/tY3pQB99QT5ja_DGLxbszzoQ3KJ86JH1EpeHyAKvOaQ-09VkCo7VaMBpxp-0jyGa6WUKQxSOQHJf7II8wUpG65we38H_a-Zp2htQwCwqm7T-Jh36jLZJy0TY7D-S53MZb2H10kCd7agVb_RHkriTJfAHlkU5_UK3K2uxEhxF9m5VzY6cgX55cI3KAZ1G8cstQR67o1YXmoSEW-AZ9bd6etqmQEcQE8DGZq0WErSMdESh4QqeBIhHUdFho3rtkQOMTORKl8IWhHTgsCK3T8XvyrE-5vPT6n8GKtFOtFAoHXgz672K8g9Ga2IMfQ44isIwxyNwqYSvXYyT2sc8JgdR-J1ApY6qbzGNCvzL2OFyqdDNdIPTLUPh1DBF8hgypNRtm0cmIlwNzxNB1yVrRh9_aSYAgm_p1Ooc7WFe2hxFzW_lB36iVKHyLNiJcimt1tRkkeGDkwrWXn0SOIt5exEwZJkCyk7QkY-CnPfal_ER00Fr17nyZASeAjhUxTOj5Nm44O80T_-CsFlmyHnLEOlGbnPRzzN-kARYo02hqNCDOAbgUkf5aQB_pDMWHStfWIt7SrLi5pKl_5P32ywAVXojKDxUOQqTWLG0yYxi0k7Tq8zSOXwrrXRwbYU4NtOGIWPquXnoHiKbR6-tAGO5MGWujprXnt2iUAsTGNYzXdyxGDWuCUBFj2UXiU-cBSbdPHNkN8Hq4ube69T9fHw52cgUYNp7O4kIg-BXeWU01U15NDUJPO-R7F3nhCskkF4b4BfgVUTZLtLCOJKRSwOUGj8ydQxBbe0ArBatDCnesYe0rs1DUHQncc-N5jpmj0zwozdziI8WS-jOKqmQ3q6tXt0iwktze9BP2jf0vAePgQR609sh9NKNVkxxikaMkDb-kWoAqhngADd6_zEwKIKqMsbGW8sGHvQ9kwL8rJrCi0-tCfjh4A=w602-h607-s-no?authuser=0)">
+                    </div>
+                    <div class="card__content">
+                        <p class="card__category">PERSNAL</p>
+                        <h3 class="card__heading"><br><br>All about Persnal Life</h3>
+                    </div>
+                </a>
+                <a class="card" href="#">
+                    <div class="card__background"
+                        style="background-image: url(https://lh3.googleusercontent.com/RdwycXYGwccrls8xg6-7ykvxsqAN1iOybM1xSvlS5Pk7TOEzDYVk7vxr8oosbA-BUMuFvUMoY6BHibWwJl1Sno4JZxJBRf1G3m3XiIbuFuxZcSRNIY1Z34MN5yPx4trmP_YvU3l_oegl6DNdquYe3QY0DCZActCVZ-NDqzXjwrONAE_QeWvhPm6NjGW4PhFsds4GfOpcy65LS2wFdPc7Ub7T4bNj4_vzKBNy_1qihUjCVtFEjT0Qz-cgK7lGKLQo4x6Jde4WT1xPuCZzDj0J33vtVIS5KNkZtW_TeTxqsF80MH96eWrP-Xwie5Z1ifgecmxOvrARQZS9t8NYUYEJ80m1MQU9ZcapmMwhnL3n7OV-EZzmmpSiE0By9dBPUGb-2DQSD252KjdemMsQ--t1p8svYvFFFXeUh4VasyKvwB8MFsyfL-OwRPdWYSCVRWzWv29TGqYzFysuR0-w8_674FpaAGgfmmdEvy1Zcd6QkGqpnJO0iRtdOvfIDuIAcGmBRq_Qrjc62s1mOs1w3Sr3WgbBzT4ttkIW-lctBdOQqMOFksbpqaJ_T7xhscOiY0pGz2GQSv_VY5vYnuY5emGTiTnmV83ESW10wC4TKbHlnyR7qXXOXzg7E8w-ceoHnWZmF8Xz5cZQtvGmkC7Nyh9UHzQ02CWIeBcdRxFst-BQYy1Si2TlGv0M1BSbztQ8EJFC30YY58E9y7bc04bV6yP5xi6wTRXDXSCY_JN04hcJVHtaPiyhL0ZRoKyaFuLReJob6DnnKTQTcR-WoXwtGBPeRW4_BG3q3skHnCXgBb6xAML7tP2lEURKZnvWKm45FyqnaBIR_R6XuwjahmeYc7pKJINAXaIMJkZQp-5z6u0g5ZdRlStsnBR2EMYANMwYeSDzVphqewRqANjw_Hrn37eC-pSpZ29FQwND7Vf56I7hKZHeNg=w607-h607-s-no?authuser=0)">
+                    </div>
+                    <div class="card__content">
+                        <p class="card__category">Life Style</p>
+                        <h3 class="card__heading"></h3>
+                    </div>
+                </a>
+
+                <div>
+    </section>
+    <!-- card -->
+    <div class="game">
+
+    </div>
+    <!-- card2 -->
+
+
+
+    <!-- card2 -->
+    <!-- footer -->
+
+
+
+    <!-- footer -->
+
+
+
+
+</body>
+
+</html>
