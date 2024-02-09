@@ -25,4 +25,15 @@ urlpatterns = [
     path('profile', views.profile, name='profile'),
     path('login', views.login, name='login'),
     path('help', views.help, name='help'),
+
+    # this is for my potfolio
+    path('introduction', views.intro, name='introduction'),
+    path('profectional', views.profec, name='profectional'),
+    path('persnal', views.persnal, name='persnal'),
+    path('life_style', views.life_style, name='life_style'),
+
+    #profile update
+    #  path('update_data:<int:pk>', views.update, name='update_data'),
+
+
 ]

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html, body {
+	height: 100%;
+}
+
+#gallery {
+	padding: 24px;
+	
+	background-color: #fff;
+	text-align: center;
+}
+
+.img {
+	display: inline-block;
+	
+	width: calc(90vw / 3);
+	height: calc(90vw / 3 * 9 / 16);
+	
+	min-width: calc(150px * 16 / 9);
+	min-height: 150px; 
+	
+	margin: 12px;
+	
+	background-color: #0002;
+	border-radius: 3px;
+}
+
+    </style>
+</head>
+<body>
+    <div id="gallery">
+        <div class="img"></div>
+        <div class="img"></div>
+        <div class="img"></div>
+        <div class="img"></div>
+        <div class="img"></div>
+        <div class="img"></div>
+        <div class="img"></div>
+        <div class="img"></div>
+        <div class="img"></div>
+        <div class="img"></div>
+    </div>
+    <script>
+        console.clear();
+
+(function sayHi () {
+	console.log('Hi');
+})();
+    </script>
+</body>
+</html>

@@ -201,17 +201,18 @@
 <body>
     <div class="container">
         <div class="left">
-            <h1><span style="color:rgb(118, 173, 255) ;">TECH</span>Login</h1>
+            <h1><span style="color:rgb(118, a, 255) ;">TECH</span>Login</h1>
 
         </div>
         <div class="right">
-            <form action="/login" method="post">
-                {% csrf_token %}                
+            <form action="{% url 'home1' %} " method="post">
+                {% csrf_token %}
                 <input type="text" name="id" placeholder="Email address or phone mumber">
                 <input type="password" name="password" placeholder="Password">
-                <button type="submit" >
+                <button type="submit" onclick="Alert()">
                     Log in
                 </button>
+                <!-- <input type="submit" class="button" value="Login"> -->
                 <a href="" class="forget">Forgotten password?</a>
                 <hr>
                 <div class="login-form-footer">
@@ -235,6 +236,12 @@
 
 
     </div>
+
+    <script>
+            //     function Alert(){
+            //     document.write("Login Sucessfull")
+            //   }
+    </script>
 </body>
 
 </html>

@@ -3,13 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>My Profile</title>
+    <style>
+        /* Add CSS styles here to customize your profile page */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+        }
+        .profile {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        .profile img {
+            max-width: 10%;
+            height: auto;
+          
+            
+            
+        }
+        .profile h1 {
+            font-size: 24px;
+            text-align: center;
+        }
+        .profile p {
+            font-size: 16px;
+        }
 
-    {% load static %}
+        img{
+          border-radius: 50%;
+          margin: auto;         
+        }
+
+
+    </style>
 </head>
 <body>
-    <h1>hello profile</h1>
-
-    <img src="{% static 'noen.jpg' %} " alt="">
+    
+  </div>
+        <img src="https://s3-us-west-2.amazonaws.com/harriscarney/images/150x150.png" alt="Your Name">
+        
+      
+          {% for 1 in all_data  %}
+            
+          <p><span>Name :</span><span>{{1.userid}}</span></h1>
+          
+          {% endfor %}
+          <p><span>Job Title : </span><span>{{job}}</span></p>
+          <p><span>Email : </span><span>{{email}}</span></p>
+          
+          <p><span>Location: </span><span>Your City, Your Country</span></p>
+          
+          <p>About Me: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam venenatis elit at massa vehicula, sed interdum justo ullamcorper. Aenean eu pharetra nunc.</p>
+          
+      
+    </div>
 </body>
 </html>

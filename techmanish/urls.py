@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
+
+# this is change/edit on admin page
 admin.site.site_header = "Tech_manish Admin"
 admin.site.site_title = "Tech_manish Admin Portal"
 admin.site.index_title = "Welcome to Tech_manish Portal"
@@ -23,4 +25,5 @@ admin.site.index_title = "Welcome to Tech_manish Portal"
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('techmanish_app.urls')),
+    path('/manishworld', include('manish_world.urls')),
 ]
